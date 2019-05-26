@@ -11,7 +11,9 @@ styleUrls: ['./servers.component.scss']
 export class ServersComponent implements OnInit {
     allowNewServer = false;
     serverCreationStatus = 'No Servers Created';
-    serverName = 'Test Server';
+    serverName = '';
+    serverCreated = false;
+
 constructor() {
     setTimeout(() => {
         this.allowNewServer = true;
@@ -19,7 +21,8 @@ constructor() {
 }
 
 onCreateServer() {
-    this.serverCreationStatus = 'Server is created';
+    this.serverCreated = true;
+    this.serverCreationStatus = 'Server is created ' + this.serverName;
 }
 
 onUpdateServerName(event: any) {
